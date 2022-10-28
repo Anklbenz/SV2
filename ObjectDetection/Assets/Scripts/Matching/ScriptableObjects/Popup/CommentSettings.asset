@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f8c2d6cb9ec84e479bb6b1eceb06de3, type: 3}
+  m_Name: CommentSettings
+  m_EditorClassIdentifier: 
+  headerText: "\u041A\u043E\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0439"
+  contentText: "\u041D\u0430\u043F\u0438\u0448\u0438 \u043C\u043B\u044F"
+  placeholderText: "(\u043D\u0435\u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E"
+  button1Text: Yeeees
+  button2Text: 
+  button3Text: 
+  acceptButtonEnable: 1
+  rejectButtonEnable: 1
+  additionalButtonEnable: 1
+  inputVisible: 1
+  canvasWidth: 0
+  canvasHeight: 0
