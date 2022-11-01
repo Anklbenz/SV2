@@ -10,7 +10,7 @@ public class InputItem : ControlParamItem {
 
     public override event Action ValueChangedEvent;
     private ControlParam _controlParam;
-  
+
     public override void Initialize(ControlParam controlParam, bool previewMode = false){
         _controlParam = controlParam;
 
@@ -30,6 +30,9 @@ public class InputItem : ControlParamItem {
         if (float.TryParse(valueText, out var result)){
             _controlParam.value_fact = result;
             _controlParam.is_complete = true;
+        }
+        else{
+            _controlParam.is_complete = false;
         }
 
         ValueChangedEvent?.Invoke();

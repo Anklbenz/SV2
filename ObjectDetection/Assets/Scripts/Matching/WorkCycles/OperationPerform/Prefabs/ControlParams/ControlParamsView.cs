@@ -33,10 +33,10 @@ public class ControlParamsView : View {
         _controlParamItems.Clear();
     }
 
-    public void ButtonInteractible(bool isActive) =>
+    public void AcceptInteractable(bool isActive) =>
         acceptButton.interactable = isActive;
 
-    public void ButtonSetActive(bool isActive) =>
+    public void AcceptSetActive(bool isActive) =>
         acceptButton.gameObject.SetActive(isActive);
 
     private void OnValueChangedNotify() =>

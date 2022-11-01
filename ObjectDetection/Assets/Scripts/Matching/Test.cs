@@ -6,6 +6,7 @@ public class Test : MonoBehaviour {
     [SerializeField] private TaskHandler taskHandler;
 
     [SerializeField] private OperationsHandler operationsHandler;
+
     private void Awake(){
         popup.Initialize();
         dbServices.Initialize();
@@ -13,6 +14,6 @@ public class Test : MonoBehaviour {
 
     private async void Start(){
         var workLogId = await taskHandler.SelectWorkLogIdProcess("Asset_PU21VAC");
-        operationsHandler.InputProcessCycle(workLogId);
+        await operationsHandler.InputProcessCycle(workLogId);
     }
 }

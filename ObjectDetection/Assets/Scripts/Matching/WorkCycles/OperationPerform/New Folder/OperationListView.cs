@@ -9,7 +9,7 @@ public class OperationListView : MonoBehaviour {
 
     private readonly List<OperationButton> _buttonList = new();
 
-    public void Initialize(Operation[] operations){
+    public void AddOperations(Operation[] operations){
         Clear();
             foreach (var operation in operations)
                 AddOperationButton(operation.mark_with_zeroes, 1);

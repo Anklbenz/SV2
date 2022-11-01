@@ -8,21 +8,20 @@ public class OperationsHandler : MonoBehaviour {
     [SerializeField] private OperationView view;
 
     private readonly OperationShow _operationShow = new();
-    private readonly OperationWrite _operationWrite = new();
 
-    private Operation[] _operations;
+    private OperationWrite _operationWrite;
 
     public async UniTask InputProcessCycle(int workLogId){
-        _operations = await DBServices.instance.GetOperationsWithControlParams(workLogId);
-
         controlParamsHandler.Initialize();
-        view.operationList.Initialize(_operations);
+        _operationWrite = new OperationWrite(view, controlParamsHandler.controlParamsWrite);
         
-        _operationWrite.Initialize(view, controlParamsHandler.controlParamsInput);
+        var operations = await DBServices.instance.GetOperationsWithControlParams(workLogId);
+
+        view.operationList.AddOperations(operations);
         
         view.Open();
-        
-        foreach (var operation in _operations)
+        foreach (var operation in operations)
             await _operationWrite.Process(operation);
+        view.Close();
     }
 }

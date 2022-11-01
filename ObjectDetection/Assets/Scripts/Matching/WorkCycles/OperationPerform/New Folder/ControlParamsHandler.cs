@@ -5,11 +5,11 @@ using UnityEngine;
 public class ControlParamsHandler : MonoBehaviour {
     [SerializeField] private ControlParamsView view;
 
-    public readonly ControlParamsInput controlParamsInput = new();
+    public ControlParamsWrite controlParamsWrite;
     public readonly ControlParamsShow controlParamsShow = new();
 
     public void Initialize(){
-        controlParamsInput.Initialize(view);
+        controlParamsWrite = new ControlParamsWrite(view);
         controlParamsShow.Initialize(view);
     }
 }
