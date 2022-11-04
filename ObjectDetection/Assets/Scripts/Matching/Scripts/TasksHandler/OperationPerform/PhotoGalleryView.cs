@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 [System.Serializable]
 public class PhotoGalleryView  {
-    [Header("Photo")]
+    [Header("Gallery")]
     [SerializeField] private RectTransform imageParent;
     [SerializeField] private PhotoItem photoItemPrefab;
     

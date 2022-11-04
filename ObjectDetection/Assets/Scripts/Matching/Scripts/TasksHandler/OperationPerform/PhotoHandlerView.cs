@@ -4,13 +4,15 @@ using UnityEngine.UI;
 
 [System.Serializable]
 public class PhotoHandlerView : View {
-    [SerializeField] private Button shotButton, closeButton;
+    [Header(("PhotoHandler"))]
+    [SerializeField] private Button shotButton;
+    [SerializeField] private Button closeButton;
     public PhotoGalleryView photoGalleryView;
 
-    public event Action OnTakePhotoEvent, CloseEvent;
+    public event Action TakePhotoEvent, CloseEvent;
 
     public override void Open(){
-        shotButton.onClick.AddListener(delegate { OnTakePhotoEvent?.Invoke(); });
+        shotButton.onClick.AddListener(delegate { TakePhotoEvent?.Invoke(); });
         closeButton.onClick.AddListener(delegate { CloseEvent?.Invoke(); });
         base.Open();
     }

@@ -16,12 +16,12 @@ public class OperationWrite {
     public OperationWrite(OperationView operationView, ControlParamsWrite controlParamsWrite, PhotoHandler photoHandler){
         _operationView = operationView;
 
-        _operationView.AcceptClickedEvent += OnAccept;
+        _operationView.AcceptClickedEvent += OnOperationAccept;
         _operationView.ParamsClickedEvent += AddParams;
         _operationView.PhotoClickedEvent += AddPhoto;
 
         _controlParamsWrite = controlParamsWrite;
-        _controlParamsWrite.OnAcceptParams += OnParamsAcceptClicked;
+        _controlParamsWrite.OnAcceptParams += OnParamsAccepted;
 
         _photoHandler = photoHandler;
     }
@@ -36,12 +36,12 @@ public class OperationWrite {
         await _completionSource.Task;
     }
 
-    private void OnParamsAcceptClicked(){
+    private void OnParamsAccepted(){
         _operationView.ParamUpdate(_controlParamsWrite.GetState());
         _operationView.ReadyToNext(IsOperationReady());
     }
 
-    private void OnAccept(){
+    private void OnOperationAccept(){
         _completionSource.TrySetResult();
     }
 

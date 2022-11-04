@@ -13,20 +13,22 @@ public class PhotoHandler : MonoBehaviour {
 
     private void Awake(){
         _viewFinder = new Viewfinder(viewfinderView, this);
-       // _photoGallery = new PhotoGallery(photoGalleryView);
+        _photoGallery = new PhotoGallery(photoHandlerView.photoGalleryView);
+        photoHandlerView.TakePhotoEvent += TakePhoto;
+        photoHandlerView.CloseEvent += OnClose;
     }
 
     public async UniTask TakePhotosProcess(Texture2D[] texturesContainer){
         _completionSource = new UniTaskCompletionSource();
 
-      //  photoGalleryView.Open();
+        photoHandlerView.Open();
 
         await _completionSource.Task;
 
-      //  photoGalleryView.Close();
+        photoHandlerView.Close();
     }
 
-    private async void OnTakePhoto(){
+    private async void TakePhoto(){
         await _viewFinder.TakePhotoProcess();
     }
 
