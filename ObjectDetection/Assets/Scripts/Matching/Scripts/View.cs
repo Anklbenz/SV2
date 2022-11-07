@@ -1,14 +1,23 @@
+using System;
 using UnityEngine;
 
-[System.Serializable]
-public class View {
-   [Header("View")]
-   [SerializeField] private GameObject canvas;
-   [SerializeField] private CanvasGroup canvasGroup;
-   [SerializeField] private Animator animator;
-   public virtual void Open() =>
-      canvas.SetActive(true);
+[RequireComponent(typeof(CanvasGroup))]
+[RequireComponent(typeof(Animator))]
+public class View : MonoBehaviour {
+   private CanvasGroup _canvasGroup;
+   private Animator _animator;
+   public bool isActive => gameObject.activeInHierarchy;
+   private float _canvasAlpha;
 
-   public virtual void Close() =>
-      canvas.SetActive(false);
+   private void Awake(){
+      _canvasGroup = GetComponent<CanvasGroup>();
+      _animator = GetComponent<Animator>();
+   }
+
+   public void Open() =>
+      gameObject.SetActive(true);
+
+   public void Close() =>
+      gameObject.SetActive(false);
+
 }

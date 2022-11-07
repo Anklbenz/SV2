@@ -1,10 +1,20 @@
 using UnityEngine;
 
-public class PhotoGallery  {
-    private PhotoGalleryView _photoGalleryView;
+public class PhotoGallery : MonoBehaviour {
+    [SerializeField] private PhotoGalleryView photoGalleryView;
+    [SerializeField] private P
+    public void Add(Texture2D photoTexture){
+        _photoGalleryView.Add(photoTexture);
+        
+    }
 
-    public PhotoGallery(PhotoGalleryView photoGalleryView){
-        _photoGalleryView = photoGalleryView;
+    public void Remove(){
+        
+    }
 
-     }
+    public void ApplyChanges(){
+        
+    }
+    
+    private void OnImageSelect(){}
 }

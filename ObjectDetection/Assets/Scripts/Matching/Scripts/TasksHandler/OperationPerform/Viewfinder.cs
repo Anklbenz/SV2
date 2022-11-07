@@ -2,28 +2,31 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class Viewfinder {
-    private readonly ViewfinderView _view;
+    private readonly ViewfinderView _viewfinderView;
     private readonly MonoBehaviour _coroutineRunner;
     private UniTaskCompletionSource<Texture2D> _completionSource;
 
-    public Viewfinder(ViewfinderView viewfinderView, MonoBehaviour coroutineRunner){
-        _view = viewfinderView;
+    public Viewfinder(ViewfinderView viewfinderViewfinderView, MonoBehaviour coroutineRunner){
+        _viewfinderView = viewfinderViewfinderView;
         _coroutineRunner = coroutineRunner;
     }
 
     public async UniTask<Texture2D> TakePhotoProcess(){
         _completionSource = new UniTaskCompletionSource<Texture2D>();
-        _view.Open();
-        _view.TakePhotoEvent += OnTakePhotoClick;
+        _viewfinderView.Open();
+        _viewfinderView.TakePhotoEvent += OnTakePhotoClick;
+        ShowHideHandler.instance.HideEverything(_viewfinderView);
 
         var result = await _completionSource.Task;
 
-        _view.TakePhotoEvent -= OnTakePhotoClick;
-        _view.Close();
+        ShowHideHandler.instance.ShowEverything();
+        _viewfinderView.TakePhotoEvent -= OnTakePhotoClick;
+        _viewfinderView.Close();
         return result;
     }
 
     private async void OnTakePhotoClick(){
+        _viewfinderView.Close();
         var screenshotTexture = await TakePhoto(_coroutineRunner);
         if (screenshotTexture != null)
             _completionSource.TrySetResult(screenshotTexture);

@@ -4,10 +4,9 @@ using Enums;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
 public class OperationView : View {
-     [Header("Operation")]
      [SerializeField] private InfoView info;
+
      [SerializeField] private Button acceptButton;
      [SerializeField] private AddButton addButton;
      [SerializeField] private ParamButton noteButton, paramsButton, photoButton;
@@ -48,7 +47,7 @@ public class OperationView : View {
      public void PhotoUpdate(ParamState state) =>
           paramsButton.SetParamButtonState(state);
 
-     public override void Open(){
+     public void OnEnable(){
           paramsButton.button.onClick.AddListener(delegate
           {
                ParamsClickedEvent?.Invoke();
@@ -67,13 +66,11 @@ public class OperationView : View {
 
           addButton.button.onClick.AddListener(delegate { autoHidePanel.Show(); });
           acceptButton.onClick.AddListener(delegate { AcceptClickedEvent?.Invoke(); });
-          base.Open();
      }
 
-     public override void Close(){
+     public void OnDisable(){
           paramsButton.button.onClick.RemoveAllListeners();
           noteButton.button.onClick.RemoveAllListeners();
           photoButton.button.onClick.RemoveAllListeners();
-          base.Close();
      }
 }

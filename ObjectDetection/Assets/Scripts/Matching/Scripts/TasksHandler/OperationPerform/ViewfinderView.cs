@@ -2,20 +2,15 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
 public class ViewfinderView : View {
     [Header("Viewfinder")]
     [SerializeField] private Button button;
 
     public event Action TakePhotoEvent;
 
-    public override void Open(){
+    private void OnEnable() =>
         button.onClick.AddListener(delegate { TakePhotoEvent?.Invoke(); });
-        base.Open();
-    }
 
-    public override void Close(){
+    private void OnDisable() =>
         button.onClick.RemoveAllListeners();
-        base.Close();
-    }
 }

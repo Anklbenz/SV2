@@ -42,15 +42,15 @@ public class ControlParamsView : View {
     private void OnValueChangedNotify() =>
         ValueChangedEvent?.Invoke();
 
-    public override void Open(){
+    private void OnEnable(){
         acceptButton.onClick.AddListener(delegate { OnAcceptClickEvent?.Invoke(); });
         closeButton.onClick.AddListener(delegate { OnCloseClickEvent?.Invoke(); });
-        base.Open();
+  
     }
 
-    public override void Close(){
+    private void OnDisable(){
         acceptButton.onClick.RemoveAllListeners();
         closeButton.onClick.RemoveAllListeners();
-        base.Close();
+   
     }
 }

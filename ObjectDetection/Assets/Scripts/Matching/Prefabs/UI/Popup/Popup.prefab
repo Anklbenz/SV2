@@ -144,6 +144,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6973423116395782679}
+  - component: {fileID: 7654507098194131769}
+  - component: {fileID: 3836008114101219369}
+  - component: {fileID: 8983443663722655285}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -173,6 +176,60 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &7654507098194131769
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096361013891008144}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!95 &3836008114101219369
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096361013891008144}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8983443663722655285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096361013891008144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96297ff0fcbba254e91a427bd94e54c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headerText: {fileID: 7753095284722396318}
+  contentText: {fileID: 7753095283017359961}
+  inputField: {fileID: 7307577603042197711}
+  placeholder: {fileID: 4700010471293106902}
+  acceptText: {fileID: 7753095283256748129}
+  rejectText: {fileID: 7753095284334957658}
+  additionalText: {fileID: 6638600061097989302}
+  acceptButton: {fileID: 7753095284212246473}
+  cancelButton: {fileID: 7753095283405990246}
+  additionalButton: {fileID: 521939757648416675}
 --- !u!1 &2272518621995331438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,7 +1066,7 @@ GameObject:
   - component: {fileID: 7753095283405990247}
   - component: {fileID: 7753095283405990246}
   m_Layer: 5
-  m_Name: CancelButton
+  m_Name: RejectButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1898,18 +1955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab7e999f1838284aacab6ffc9e52013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popupView:
-    canvas: {fileID: 2096361013891008144}
-    headerText: {fileID: 7753095284722396318}
-    contentText: {fileID: 7753095283017359961}
-    inputField: {fileID: 7307577603042197711}
-    placeholder: {fileID: 4700010471293106902}
-    acceptText: {fileID: 7753095283256748129}
-    rejectText: {fileID: 7753095284334957658}
-    additionalText: {fileID: 6638600061097989302}
-    acceptButton: {fileID: 7753095284212246473}
-    cancelButton: {fileID: 7753095283405990246}
-    additionalButton: {fileID: 521939757648416675}
+  popupView: {fileID: 8983443663722655285}
   dialog:
     settings: {fileID: 11400000, guid: 74dcb77f5cb7a404685e475de3755eed, type: 2}
   warning:

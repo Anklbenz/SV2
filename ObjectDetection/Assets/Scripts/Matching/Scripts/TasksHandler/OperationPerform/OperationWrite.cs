@@ -45,28 +45,26 @@ public class OperationWrite {
         _completionSource.TrySetResult();
     }
 
-
     private bool IsOperationReady(){
         if (controlParamsRequired)
             if (_controlParamsWrite.GetState() != ParamState.Complete)
                 return false;
-        /*if (photoRequired)
+        if (photoRequired)
             if (_operation.userOperationData.Textures == null)
-                return false;*/
+                return false;
 
         return true;
     }
-
 
     private async void AddParams(){
         await _controlParamsWrite.WriteProcess(_operation.userOperationData.ControlParams);
     }
 
-    private async void AddNote(){
-
-    }
-
     private async void AddPhoto(){
         await _photoHandler.TakePhotosProcess(_operation.userOperationData.Textures);
+    }
+    
+    private async void AddNote(){
+
     }
 }
